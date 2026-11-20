@@ -13,7 +13,7 @@ class Friendship(Base):
     status: Mapped[str] = mapped_column(String(20), default='pending')
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
-    UniqueConstraint("requester_id", "addressee_id", name="uq_friendship_pair")
+    __table_args__ = (UniqueConstraint("requester_id", "addressee_id", name="uq_friendship_pair"),)
 
     requester: Mapped["User"] = relationship(foreign_keys=[requester_id], back_populates="sent_friend_requests")
     addressee: Mapped["User"] = relationship(foreign_keys=[addressee_id], back_populates="received_friend_requests")

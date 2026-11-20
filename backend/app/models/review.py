@@ -7,7 +7,7 @@ from app.core.database import Base
 class FieldReview(Base):
     __tablename__ = "field_reviews"
     id: Mapped[int] = mapped_column(primary_key=True)
-    field_id: Mapped[int] = mapped_column(ForeignKey('fields.id', ondelete='CASCADE'))
+    field_id: Mapped[int] = mapped_column(ForeignKey('fields.id', ondelete='CASCADE'), index=True)
     user_id: Mapped[int] = mapped_column(ForeignKey('users.id', ondelete='CASCADE'))
     rating: Mapped[int] = mapped_column(Integer)
     comment: Mapped[str|None] = mapped_column(Text, default=None)

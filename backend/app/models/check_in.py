@@ -13,7 +13,7 @@ class CheckIn(Base):
     status: Mapped[str] = mapped_column(String(20))
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     planned_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), index=True)
-    expired_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    expired_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), index=True)
     notes: Mapped[str|None] = mapped_column(Text, default=None)
 
     user: Mapped["User"] = relationship(back_populates="check_ins")

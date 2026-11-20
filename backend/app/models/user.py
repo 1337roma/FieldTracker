@@ -22,6 +22,6 @@ class User(Base):
 
     reviews: Mapped[list["FieldReview"]] = relationship(back_populates="user")
     created_events: Mapped[list["Event"]] = relationship(back_populates="creator")
-    event_participations: Mapped[list["EventParticipant"]] = relationship(back_populates="user")
+    event_participants: Mapped[list["EventParticipant"]] = relationship(back_populates="user")
     sent_friend_requests: Mapped[list["Friendship"]] = relationship(foreign_keys="Friendship.requester_id", back_populates="requester")
     received_friend_requests: Mapped[list["Friendship"]] = relationship(foreign_keys="Friendship.addressee_id", back_populates="addressee")

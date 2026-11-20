@@ -12,8 +12,8 @@ class Chat(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), index=True)
 
     field: Mapped["Field|None"] = relationship(back_populates="chats")
-    messages: Mapped[list["Message"]] = relationship(back_populates="chats")
-    members: Mapped[list["ChatMember"]] = relationship(back_populates="chats")
+    messages: Mapped[list["Message"]] = relationship(back_populates="chat")
+    members: Mapped[list["ChatMember"]] = relationship(back_populates="chat")
 
 class ChatMember(Base):
     __tablename__ = 'chat_members'
