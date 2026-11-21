@@ -1,10 +1,21 @@
-from user import User
-from field import Field
-from check_in import CheckIn
-from chat import Chat
-from chat import ChatMember
-from message import Message
-from review import FieldReview
-from event import Event
-from event import EventParticipant
-from friendship import Friendship
+from app.models.user import User
+from app.models.field import Field
+from app.models.check_in import CheckIn
+from app.models.chat import Chat, ChatMember
+from app.models.message import Message
+from app.models.review import FieldReview
+from app.models.event import Event, EventParticipant
+from app.models.friendship import Friendship
+
+__all__ = [
+    "User",
+    "Field",
+    "CheckIn",
+    "Chat",
+    "ChatMember",
+    "Message",
+    "FieldReview",
+    "Event",
+    "EventParticipant",
+    "Friendship",
+]
